@@ -43,7 +43,7 @@ public class StudentController {
         return studentService.getStudent(id);
     }
 
-    @PostMapping(value = "/student/edit/{id}")
+    @DeleteMapping(value = "/student/delete/{id}")
     public  ResponseEntity<UniversalResponse> deleteStudent(@PathVariable int id){
         return studentService. deleteStudent(id);
     }
@@ -54,7 +54,7 @@ public class StudentController {
      * @param studentWrapper
      * @return
      */
-    @PatchMapping(value = "/student/delete/{id}")
+    @PutMapping(value = "/student/edit/{id}")
     public  ResponseEntity<UniversalResponse> editStudent(@PathVariable Long id,@RequestBody StudentWrapper studentWrapper){
         return studentService.editStudent(id,studentWrapper);
     }
