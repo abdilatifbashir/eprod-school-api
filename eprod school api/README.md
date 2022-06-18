@@ -21,6 +21,3 @@ mvn clean package; java -jar target/eprod-1.8.jar
 ```bash
 mvn clean install
 ```
-- test: 
-```bash
-```
