@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"streamForm\":\"Form 3j\"\r\n    \r\n}",
+					"raw": "{\r\n    \"streamForm\":\"Form 3f\"\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firtName\":\"henry\",\r\n    \"lastName\":\"kimani\",\r\n    \"regNo\":\"48uyxx\",\r\n    \"formStream\":\"1B\",\r\n    \"dob\":\"2022-06-16\"\r\n    \r\n\r\n    \r\n}",
+					"raw": "{\r\n    \"firtName\":\"henry\",\r\n    \"lastName\":\"kimani\",\r\n    \"regNo\":\"sct-221\",\r\n    \"formStream\":\"3b\",\r\n    \"dob\":\"1996-06-16\"\r\n    \r\n\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -72,7 +72,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firtName\":\"wine\",\r\n    \"lastName\":\"andreqw\",\r\n    \"regNo\":\"589\",\r\n    \"formStream\":\"1B\",\r\n    \"dob\":\"1996-06-16\"\r\n    \r\n\r\n    \r\n}",
+					"raw": "{\r\n    \"firtName\":\"sheikh\",\r\n    \"lastName\":\"bashir\",\r\n    \"regNo\":\"58909\",\r\n    \"formStream\":\"3b\",\r\n    \"dob\":\"1996-06-16\"\r\n    \r\n\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -80,7 +80,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/student/edit/6",
+					"raw": "http://localhost:8080/api/v1/student/edit/997",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -91,7 +91,7 @@
 						"v1",
 						"student",
 						"edit",
-						"6"
+						"997"
 					]
 				}
 			},
@@ -135,7 +135,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/stream/1",
+					"raw": "http://localhost:8080/api/v1/stream/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -145,7 +145,7 @@
 						"api",
 						"v1",
 						"stream",
-						"1"
+						"6"
 					]
 				}
 			},
@@ -190,7 +190,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/student/6",
+					"raw": "http://localhost:8080/api/v1/student/10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -200,7 +200,7 @@
 						"api",
 						"v1",
 						"student",
-						"6"
+						"10"
 					]
 				}
 			},
@@ -258,7 +258,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"streamId\":1,\r\n    \"studentIds\":[\r\n        6\r\n    ]\r\n}",
+					"raw": "{\r\n    \"streamId\":6,\r\n    \"studentIds\":[\r\n        9\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -288,7 +288,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8989/api/v1/stream/get-studentget-audience-group/",
+					"raw": "http://localhost:8989/api/v1/stream/get-studentget-audience-group/?page=0&size=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -300,6 +300,16 @@
 						"stream",
 						"get-studentget-audience-group",
 						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
 					]
 				}
 			},

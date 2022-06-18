@@ -8,6 +8,7 @@ import com.eprod.school.repository.StudentStreamRepository;
 import com.eprod.school.requestWrappers.StudentStreamWrapper;
 import com.eprod.school.requestWrappers.StudentWrapper;
 import com.eprod.school.requestWrappers.UniversalResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class StudentService {
     @Autowired
     StudentRepository studentRepository;
@@ -107,28 +109,33 @@ public class StudentService {
 
     }
 
+    /**
+     *
+     * @param studentStreamWrapper
+     * @return
+     */
+    public ResponseEntity<UniversalResponse> addStudentToStream(StudentStreamWrapper studentStreamWrapper){
+    FormStreamEntity formStream = formStreamRepository.findById(studentStreamWrapper.getStreamId())
+            .orElseThrow(() -> new EntityNotFoundException("stream with that id not found"));
+//    log.info("stream lookup :" + formStream);
 
-public ResponseEntity<UniversalResponse> addStudentToStream(StudentStreamWrapper studentStreamWraper){
-    System.out.println("audince group wrapper iss: " + studentStreamWraper);
-    FormStreamEntity formStream = formStreamRepository.findById(studentStreamWraper.getStreamId())
-            .orElseThrow(() -> new EntityNotFoundException("strem with that id not found"));
+    ArrayList<StudentStreamEntity> studentsInStreamList = new ArrayList<>();
+    studentStreamWrapper.getStudentIds().forEach((studentId) -> {
+        log.info("student id : " + studentId);
 
-    ArrayList<StudentStreamEntity> studentStreamList = new ArrayList<>();
-    System.out.println("audience group list is :" + studentStreamList);
-    studentStreamWraper.getStudentIds().forEach((studentId) -> {
-        System.out.println("audience id is" + studentId);
         StudentStreamEntity studentStreamEntity = new StudentStreamEntity();
-        List<StudentStreamEntity> studentStreamEntities = studentStreamRepository.findAllByStreamIdAndStudentId(studentStreamWraper.getStreamId(),studentId);
-        if(!studentStreamEntities.isEmpty())
-            return;
-        studentStreamEntity.setStreamId(studentStreamWraper.getStreamId());
+//        List<StudentStreamEntity> studentStreamEntities = studentStreamRepository.findAllByStreamIdAndStudentId(studentStreamWrapper.getStreamId(),studentId);
+//        if(!studentStreamEntities.isEmpty())
+//            return;
+        studentStreamEntity.setStreamId(studentStreamWrapper.getStreamId());
         studentStreamEntity.setStudentId(studentId);
-        studentStreamList.add(studentStreamEntity);
+        studentsInStreamList.add(studentStreamEntity);
     });
-    List<StudentStreamEntity> studentStreamEntities = studentStreamRepository.saveAll(studentStreamList);
+//    log.info("stduent stream entity is : " + studentStreamList);
+    List<StudentStreamEntity> studentStreamEntities = studentStreamRepository.saveAll(studentsInStreamList);
 
 
-    return UniversalResponse.responseFormatter(200,400,"student stream",studentStreamEntities);
+    return UniversalResponse.responseFormatter(200,200,"student stream",null);
 
 
 
