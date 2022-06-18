@@ -135,7 +135,7 @@ public class StudentService {
     List<StudentStreamEntity> studentStreamEntities = studentStreamRepository.saveAll(studentsInStreamList);
 
 
-    return UniversalResponse.responseFormatter(200,200,"student stream",null);
+    return UniversalResponse.responseFormatter(200,200,"student stream",studentsInStreamList);
 
 
 
@@ -143,12 +143,12 @@ public class StudentService {
     public ResponseEntity<UniversalResponse> getStudentStreamList(int streamId,int page,int size){
         Pageable pageable = PageRequest.of(page,size,Sort.by("id").descending());
         FormStreamEntity formStream = formStreamRepository.findById(Long.valueOf(streamId))
-                .orElseThrow(() -> new EntityNotFoundException("group with that id does not exist"));
-        List<StudentEntity> audienceGroupList = studentRepository.findStreamById(formStream.getId());
+                .orElseThrow(() -> new EntityNotFoundException("form stream with that id does not exist"));
+        List<StudentEntity> studentList = studentRepository.findStreamById(formStream.getId());
 
 
 
-        return UniversalResponse.responseFormatter(200,200,"group list",audienceGroupList);
+        return UniversalResponse.responseFormatter(200,200,"group list",studentList);
     }
 
 
