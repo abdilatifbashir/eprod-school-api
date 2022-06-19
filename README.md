@@ -14,13 +14,9 @@ check request body at postman i saved in collect and you will be abe to see it
 ## Commands
 - run: 
 ```bash
-mvn clean package; java -jar target/stocktrades-1.0.jar
+mvn clean package; java -jar target/eprod-1.8.jar
 ```
 - install: 
 ```bash
 mvn clean install
-```
-- test: 
-```bash
-mvn clean test
 ```
